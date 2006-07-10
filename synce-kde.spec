@@ -2,6 +2,7 @@
 # - split to subpackages
 # - devel as -libs-devel as rest of synce-* packages do?
 Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
+Summary(pl):	Integracja SynCE z KDE - modu³ kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
 Release:	0.1
@@ -10,6 +11,7 @@ Group:		Applications
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
 # Source0-md5:	213ea85f85414b9f05f4252028bce134
 URL:		http://synce.sourceforge.net/
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
 BuildRequires:	rpmbuild(macros) >= 1.213
@@ -25,17 +27,31 @@ This Package is a KDE-Integration of SynCE. It consists of a kio_slave
 cable connection manager (VDCCM).
 
 - RAPIP: Lets you transparently interact with your PockePC via
-  konqueror.
-- RAKI: Is a Linux-Incarnation of Activsync. It claims to be better
+  Konqueror.
+- RAKI: Is a Linux-Incarnation of Activesync. It claims to be better
   than Activesync in future.
 
+%description -l pl
+Ten pakiet integruje SynCE z KDE. Sk³ada siê z modu³u kio_slave
+(RAPIP), aplikacji zasobnika systemowego KDE (RAKI) i rozszerzonego
+zarz±dcy bezpo¶redniego po³±czenia kabelkiem (VDCCM).
+
+- RAPIP pozwala w sposób przezroczysty pracowaæ z PocketPC poprzez
+  Konquerora.
+- RAKI to linuksowa wersja Activesynca; w przysz³o¶ci ma byæ lepsza
+  ni¿ Activesync.
+
 %package devel
-Summary:	Header files for the KDE
+Summary:	Header files for the Dynamite library
+Summary(pl):	Pliki nag³ówkowe biblioteki Dynamite
 Group:		Development/Libraries
-#Requires:	%{name} = %{version}-%{release}
+# doesn't require base
 
 %description devel
 Header files for the Dynamite library.
+
+%description devel -l pl
+Pliki nag³ówkowe biblioteki Dynamite.
 
 %prep
 %setup -q
@@ -62,6 +78,9 @@ rm -rf $RPM_BUILD_ROOT
 	kdelnkdir=%{_desktopdir} \
 
 %find_lang %{name} --with-kde
+# note: separate on package split
+%find_lang raki --with-kde
+cat raki.lang >> %{name}.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/raki
 %attr(755,root,root) %{_bindir}/vdccm
 %{_libdir}/kde3/kio_rapip.la
-%{_libdir}/kde3/kio_rapip.so
+%attr(755,root,root) %{_libdir}/kde3/kio_rapip.so
 %{_desktopdir}/raki.desktop
 %{_datadir}/apps/konqueror/servicemenus/cab_install.desktop
 %{_datadir}/apps/raki
@@ -82,9 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/raki_bw.png
 %{_iconsdir}/*/*/apps/rapip.png
 %{_iconsdir}/*/*/apps/rapip_bw.png
-
-# TODO: this seems wrong
-%{_docdir}/kde/HTML/en/raki
 
 %files devel
 %defattr(644,root,root,755)
