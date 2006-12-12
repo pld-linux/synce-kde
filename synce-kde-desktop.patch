@@ -1,0 +1,7 @@
+--- synce-kde-0.9.1/raki/raki.desktop~	2003-02-11 23:10:11.000000000 +0200
++++ synce-kde-0.9.1/raki/raki.desktop	2006-12-12 03:27:30.000000000 +0200
+@@ -36,3 +36,4 @@
+ Comment[uk]=Програма KPart для KDE
+ Comment[zh_CN.GB2312]=KDE KPart程序
+ Terminal=0
++Categories=Qt;KDE;Utility;X-KDE-Utilities-PIM;
