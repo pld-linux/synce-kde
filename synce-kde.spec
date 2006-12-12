@@ -5,7 +5,7 @@ Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl):	Integracja SynCE z KDE - modu³ kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		Applications
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
@@ -13,7 +13,8 @@ Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
 Patch0:		kde-common-PLD.patch
 Patch1:		kde-am.patch
 Patch2:		kde-ac260.patch
-Patch3:		synce-kde-desktop.patch
+Patch3:		kde-ac260-lt.patch
+Patch4:		synce-kde-desktop.patch
 URL:		http://www.synce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -63,6 +64,7 @@ Pliki nag³ówkowe biblioteki Dynamite.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
