@@ -5,11 +5,13 @@ Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl):	Integracja SynCE z KDE - modu³ kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	0.1
+Release:	1
 License:	MIT
 Group:		Applications
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
 # Source0-md5:	213ea85f85414b9f05f4252028bce134
+Patch0:		kde-common-PLD.patch
+Patch1:		synce-kde-desktop.patch
 URL:		http://www.synce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -55,6 +57,8 @@ Pliki nag³ówkowe biblioteki Dynamite.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -75,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir} \
-	kdelnkdir=%{_desktopdir} \
+	kdelnkdir=%{_desktopdir}/kde \
 
 %find_lang %{name} --with-kde
 # note: separate on package split
@@ -91,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/vdccm
 %{_libdir}/kde3/kio_rapip.la
 %attr(755,root,root) %{_libdir}/kde3/kio_rapip.so
-%{_desktopdir}/raki.desktop
+%{_desktopdir}/kde/raki.desktop
 %{_datadir}/apps/konqueror/servicemenus/cab_install.desktop
 %{_datadir}/apps/raki
 %{_datadir}/mimelnk/application/x-raki.desktop
