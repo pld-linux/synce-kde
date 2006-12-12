@@ -5,13 +5,15 @@ Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl):	Integracja SynCE z KDE - modu³ kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Applications
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
 # Source0-md5:	213ea85f85414b9f05f4252028bce134
 Patch0:		kde-common-PLD.patch
-Patch1:		synce-kde-desktop.patch
+Patch1:		kde-am.patch
+Patch2:		kde-ac260.patch
+Patch3:		synce-kde-desktop.patch
 URL:		http://www.synce.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -59,6 +61,8 @@ Pliki nag³ówkowe biblioteki Dynamite.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
@@ -97,7 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/kio_rapip.so
 %{_desktopdir}/kde/raki.desktop
 %{_datadir}/apps/konqueror/servicemenus/cab_install.desktop
-%{_datadir}/apps/raki
 %{_datadir}/mimelnk/application/x-raki.desktop
 %{_datadir}/services/rapip.protocol
 %{_datadir}/servicetypes/rakisynchronizer.desktop
@@ -105,6 +108,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/raki_bw.png
 %{_iconsdir}/*/*/apps/rapip.png
 %{_iconsdir}/*/*/apps/rapip_bw.png
+
+%dir %{_datadir}/apps/raki
+%{_datadir}/apps/raki/tips
+%{_datadir}/apps/raki/Infbeg.wav
+%{_datadir}/apps/raki/Infend.wav
+%dir %{_datadir}/apps/raki/scripts
+%attr(755,root,root) %{_datadir}/apps/raki/scripts/vdccm.sh
+%attr(755,root,root) %{_datadir}/apps/raki/scripts/dccm.sh
 
 %files devel
 %defattr(644,root,root,755)
