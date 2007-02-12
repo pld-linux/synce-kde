@@ -2,7 +2,7 @@
 # - split to subpackages
 # - devel as -libs-devel as rest of synce-* packages do?
 Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
-Summary(pl.UTF-8):   Integracja SynCE z KDE - moduł kio-slave i ikona zasobnika systemowego
+Summary(pl.UTF-8):	Integracja SynCE z KDE - moduł kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
 Release:	3
@@ -48,7 +48,7 @@ zarządcy bezpośredniego połączenia kabelkiem (VDCCM).
 
 %package devel
 Summary:	Header files for the Dynamite library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki Dynamite
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Dynamite
 Group:		Development/Libraries
 # doesn't require base
 
