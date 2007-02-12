@@ -2,7 +2,7 @@
 # - split to subpackages
 # - devel as -libs-devel as rest of synce-* packages do?
 Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
-Summary(pl):	Integracja SynCE z KDE - modu≥ kio-slave i ikona zasobnika systemowego
+Summary(pl.UTF-8):   Integracja SynCE z KDE - modu≈Ç kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
 Release:	3
@@ -36,27 +36,27 @@ cable connection manager (VDCCM).
 - RAKI: Is a Linux-Incarnation of Activesync. It claims to be better
   than Activesync in future.
 
-%description -l pl
-Ten pakiet integruje SynCE z KDE. Sk≥ada siÍ z modu≥u kio_slave
+%description -l pl.UTF-8
+Ten pakiet integruje SynCE z KDE. Sk≈Çada siƒô z modu≈Çu kio_slave
 (RAPIP), aplikacji zasobnika systemowego KDE (RAKI) i rozszerzonego
-zarz±dcy bezpo∂redniego po≥±czenia kabelkiem (VDCCM).
+zarzƒÖdcy bezpo≈õredniego po≈ÇƒÖczenia kabelkiem (VDCCM).
 
-- RAPIP pozwala w sposÛb przezroczysty pracowaÊ z PocketPC poprzez
+- RAPIP pozwala w spos√≥b przezroczysty pracowaƒá z PocketPC poprzez
   Konquerora.
-- RAKI to linuksowa wersja Activesynca; w przysz≥o∂ci ma byÊ lepsza
-  niø Activesync.
+- RAKI to linuksowa wersja Activesynca; w przysz≈Ço≈õci ma byƒá lepsza
+  ni≈º Activesync.
 
 %package devel
 Summary:	Header files for the Dynamite library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki Dynamite
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki Dynamite
 Group:		Development/Libraries
 # doesn't require base
 
 %description devel
 Header files for the Dynamite library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki Dynamite.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki Dynamite.
 
 %prep
 %setup -q
