@@ -1,11 +1,13 @@
 # TODO
 # - split to subpackages
+#  - kde-kio_rapip
+#  - what else?
 # - devel as -libs-devel as rest of synce-* packages do?
 Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl.UTF-8):	Integracja SynCE z KDE - moduł kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	3
+Release:	3.1
 License:	MIT
 Group:		Applications
 Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
@@ -14,8 +16,9 @@ Patch0:		kde-common-PLD.patch
 Patch1:		kde-am.patch
 Patch2:		kde-ac260.patch
 Patch3:		kde-ac260-lt.patch
-Patch4:		synce-kde-desktop.patch
+Patch4:		%{name}-desktop.patch
 URL:		http://www.synce.org/
+BuildRequires:	agsync-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
@@ -47,16 +50,19 @@ zarządcy bezpośredniego połączenia kabelkiem (VDCCM).
   niż Activesync.
 
 %package devel
-Summary:	Header files for the Dynamite library
-Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Dynamite
+Summary:	Header files for the Synce KDE
 Group:		Development/Libraries
 # doesn't require base
 
 %description devel
-Header files for the Dynamite library.
+Header files for the Synce KDE
 
-%description devel -l pl.UTF-8
-Pliki nagłówkowe biblioteki Dynamite.
+%package agsync
+Summary:	AvantGo Synchronizer for KDE
+Group:		Applications
+
+%description agsync
+AvantGo Synchronizer for KDE
 
 %prep
 %setup -q
@@ -76,6 +82,7 @@ cp -f /usr/share/automake/config.sub admin
 %endif
 	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
 	--with-qt-libraries=%{_libdir}
+
 %{__make}
 
 %install
@@ -126,3 +133,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/rakisyncplugin.h
 %{_includedir}/rapiwrapper.h
 %{_includedir}/rra.h
+
+%files agsync
+%defattr(644,root,root,755)
+%{_libdir}/kde3/rakiagsync.la
+%{_libdir}/kde3/rakiagsync.so
+%{_datadir}/services/rakiagsync.desktop
