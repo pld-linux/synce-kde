@@ -7,11 +7,13 @@ Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl.UTF-8):	Integracja SynCE z KDE - moduł kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	3.1
+Release:	3.2
 License:	MIT
 Group:		Applications
-Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
-# Source0-md5:	213ea85f85414b9f05f4252028bce134
+#Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
+Source0:	synce-kde-20071111.3047.tar.bz2
+# Source0-md5:	6f10bae63f93d16fcce968085e35d985
+#Patch100:		%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		kde-am.patch
 Patch2:		kde-ac260.patch
@@ -23,10 +25,10 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
 BuildRequires:	rpmbuild(macros) >= 1.213
-BuildRequires:	synce-dynamite-libs-devel
-BuildRequires:	synce-orange-libs-devel
-BuildRequires:	synce-rra-devel >= 0.9.1
-BuildRequires:	synce-unshield-libs-devel
+BuildRequires:	synce-dynamite-libs-devel >= 0.1-3
+BuildRequires:	synce-orange-libs-devel >= 0.3-2
+BuildRequires:	synce-rra-devel >= 0.10.0
+BuildRequires:	synce-unshield-libs-devel >= 0.5-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -65,10 +67,11 @@ Group:		Applications
 AvantGo Synchronizer for KDE
 
 %prep
-%setup -q
+%setup -q -n synce-kde
+#%patch100 -p1
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+#%patch2 -p1
 %patch3 -p1
 %patch4 -p1
 
@@ -105,7 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/raki
-%attr(755,root,root) %{_bindir}/vdccm
+#%attr(755,root,root) %{_bindir}/vdccm
 %{_libdir}/kde3/kio_rapip.la
 %attr(755,root,root) %{_libdir}/kde3/kio_rapip.so
 %{_desktopdir}/kde/raki.desktop
