@@ -3,11 +3,15 @@
 #  - kde-kio_rapip
 #  - what else?
 # - devel as -libs-devel as rest of synce-* packages do?
+#
+# Conditional build:
+%bcond_without	agsync		# skip building agsyn
+#
 Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl.UTF-8):	Integracja SynCE z KDE - moduł kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	4
+Release:	3.4
 License:	MIT
 Group:		Applications
 #Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
@@ -20,7 +24,7 @@ Patch2:		kde-ac260.patch
 Patch3:		kde-ac260-lt.patch
 Patch4:		%{name}-desktop.patch
 URL:		http://www.synce.org/
-BuildRequires:	agsync-devel
+%{?with_agsync:BuildRequires:	agsync-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
@@ -137,8 +141,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/rapiwrapper.h
 %{_includedir}/rra.h
 
+%if %{with agsync}
 %files agsync
 %defattr(644,root,root,755)
 %{_libdir}/kde3/rakiagsync.la
 %{_libdir}/kde3/rakiagsync.so
 %{_datadir}/services/rakiagsync.desktop
+%endif
