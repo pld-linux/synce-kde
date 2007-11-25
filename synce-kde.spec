@@ -2,7 +2,6 @@
 # - split to subpackages
 #  - kde-kio_rapip
 #  - what else?
-# - devel as -libs-devel as rest of synce-* packages do?
 #
 # Conditional build:
 %bcond_without	agsync		# skip building agsyn
@@ -13,7 +12,7 @@ Name:		synce-kde
 Version:	0.9.1
 Release:	3.4
 License:	MIT
-Group:		Applications
+Group:		X11/Applications
 #Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
 Source0:	synce-kde-20071111.3047.tar.bz2
 # Source0-md5:	6f10bae63f93d16fcce968085e35d985
@@ -57,18 +56,26 @@ zarządcy bezpośredniego połączenia kabelkiem (VDCCM).
 
 %package devel
 Summary:	Header files for the Synce KDE
-Group:		Development/Libraries
+Summary(pl.UTF-8):	Pliki nagłówkowe dla Synce KDE
+Group:		X11/Development/Libraries
 # doesn't require base
 
 %description devel
-Header files for the Synce KDE
+Header files for the Synce KDE.
+
+%description devel -l pl.UTF-8
+Pliki nagłówkowe dla Synce KDE.
 
 %package agsync
 Summary:	AvantGo Synchronizer for KDE
-Group:		Applications
+Summary(pl.UTF-8):	Synchronizacja AvantGo dla KDE
+Group:		X11/Applications
 
 %description agsync
-AvantGo Synchronizer for KDE
+AvantGo Synchronizer for KDE.
+
+%description agsync -l pl.UTF-8
+Synchronizacja AvantGo dla KDE.
 
 %prep
 %setup -q -n synce-kde
@@ -145,6 +152,6 @@ rm -rf $RPM_BUILD_ROOT
 %files agsync
 %defattr(644,root,root,755)
 %{_libdir}/kde3/rakiagsync.la
-%{_libdir}/kde3/rakiagsync.so
+%attr(755,root,root) %{_libdir}/kde3/rakiagsync.so
 %{_datadir}/services/rakiagsync.desktop
 %endif
