@@ -10,18 +10,19 @@ Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl.UTF-8):	Integracja SynCE z KDE - moduł kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	4
+Release:	5
 License:	MIT
 Group:		X11/Applications
 #Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
-Source0:	synce-kde-20071111.3047.tar.bz2
+Source0:	%{name}-20071111.3047.tar.bz2
 # Source0-md5:	6f10bae63f93d16fcce968085e35d985
-#Patch100:		%{name}-branch.diff
+#Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		kde-am.patch
 Patch2:		kde-ac260.patch
 Patch3:		kde-ac260-lt.patch
 Patch4:		%{name}-desktop.patch
+Patch5:		%{name}-am.patch
 URL:		http://www.synce.org/
 %{?with_agsync:BuildRequires:	agsync-devel}
 BuildRequires:	autoconf
@@ -80,13 +81,14 @@ AvantGo Synchronizer for KDE.
 Synchronizacja AvantGo dla KDE.
 
 %prep
-%setup -q -n synce-kde
+%setup -q -n %{name}
 #%patch100 -p1
 %patch0 -p1
 %patch1 -p1
 #%patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
