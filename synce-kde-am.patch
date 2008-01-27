@@ -1,0 +1,28 @@
+--- synce-kde/raki/Makefile.am~	2008-01-27 04:50:20.000000000 +0200
++++ synce-kde/raki/Makefile.am	2008-01-27 04:51:15.332889661 +0200
+@@ -13,7 +13,7 @@
+ 	-Wl,--export-dynamic --whole-archive -Wno-non-virtual-dtor
+ 
+ # the libraries to link against.
+-raki_LDADD = $(top_builddir)/raki/interfaces/libinterfaces.a $(LIB_KDEUI) $(LIB_KABC) $(ORANGE_LIB) $(RRA_LIB) $(RAPI_LIB) $(SYNCE_LIB) $(UNSHIELD_LIB) $(DYNAMITE_LIB)
++raki_LDADD = $(top_builddir)/raki/interfaces/libinterfaces.a $(LIB_KDEUI) $(LIB_KABC) $(LIBORANGE_LIBS) $(LIBRRA_LIBS) $(RAPI_LIB) $(SYNCE_LIB) $(UNSHIELD_LIB) $(DYNAMITE_LIB)
+ 
+ # which sources should be compiled for raki
+ raki_SOURCES = management.ui raki.cpp rakiworkerthread.cpp runwindow.ui \
+--- synce-kde/rapip/Makefile.am~	2008-01-27 04:55:01.000000000 +0200
++++ synce-kde/rapip/Makefile.am	2008-01-27 04:55:03.754352293 +0200
+@@ -1,12 +1,12 @@
+ INCLUDES = $(all_includes)
+ 
+ AM_CXXFLAGS = @LIBRRA_CFLAGS@ @LIBORANGE_CFLAGS@
+-AM_LDFLAGS = @LIBRRA_LIBS@ @LIBORANGE_LIBS@
++AM_LDFLAGS = 
+ 
+ kde_module_LTLIBRARIES = kio_rapip.la
+ 
+ kio_rapip_la_SOURCES = rapip.cpp
+-kio_rapip_la_LIBADD = -lkio $(RAPI_LIB) $(SYNCE_LIB)
++kio_rapip_la_LIBADD = -lkio @LIBRRA_LIBS@ @LIBORANGE_LIBS@
+ kio_rapip_la_LDFLAGS = -avoid-version -module $(all_libraries) $(KDE_PLUGIN) $(RAPI_LDFLAGS) $(SYNCE_LDFLAGS)
+ 
+ protocol_DATA = rapip.protocol
