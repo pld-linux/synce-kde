@@ -35,8 +35,6 @@ BuildRequires:	synce-rra-devel >= 0.10.0
 BuildRequires:	synce-unshield-libs-devel >= 0.5-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		filterout_ld	-Wl,--as-needed
-
 %description
 This Package is a KDE-Integration of SynCE. It consists of a kio_slave
 (RAPIP), a KDE System-Tray Application (RAKI) and an enhanced direct
