@@ -10,7 +10,7 @@ Summary:	KDE-Integration of SynCE. Kio-slave and Tray-Icon
 Summary(pl.UTF-8):	Integracja SynCE z KDE - moduł kio-slave i ikona zasobnika systemowego
 Name:		synce-kde
 Version:	0.9.1
-Release:	5
+Release:	6
 License:	MIT
 Group:		X11/Applications
 #Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
