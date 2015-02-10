@@ -1,3 +1,4 @@
+# NOTE: obsolete, see synce-kde4-kio-rapip for KDE4 successor
 # TODO
 # - split to subpackages
 #  - kde-kio_rapip
@@ -13,7 +14,7 @@ Version:	0.9.1
 Release:	7
 License:	MIT
 Group:		X11/Applications
-#Source0:	http://dl.sourceforge.net/synce/%{name}-%{version}.tar.gz
+#Source0:	http://downloads.sourceforge.net/synce/%{name}-%{version}.tar.gz
 Source0:	%{name}-20071111.3047.tar.bz2
 # Source0-md5:	6f10bae63f93d16fcce968085e35d985
 #Patch100:	%{name}-branch.diff
