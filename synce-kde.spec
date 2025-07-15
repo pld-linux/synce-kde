@@ -81,10 +81,10 @@ Synchronizacja AvantGo dla KDE.
 
 %prep
 %setup -q -n %{name}
-#%patch100 -p1
+#%%patch100 -p1
 %patch -P0 -p1
 %patch -P1 -p1
-#%patch2 -p1
+#%%patch2 -p1
 %patch -P3 -p1
 %patch -P4 -p1
 %patch -P5 -p1
